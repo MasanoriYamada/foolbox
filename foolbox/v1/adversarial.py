@@ -113,6 +113,10 @@ class Adversarial(object):
         """The best adversarial example found so far."""
         return self.__best_adversarial
 
+    @perturbed.setter
+    def perturbed(self, value):
+        self.__best_adversarial = value
+
     @property
     def output(self):
         """The model predictions for the best adversarial found so far.

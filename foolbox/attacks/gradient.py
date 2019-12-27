@@ -33,7 +33,7 @@ class SingleStepGradientBaseAttack(Attack):
             for i, epsilon in enumerate(epsilons):
                 perturbed = x + gradient * epsilon
                 perturbed = np.clip(perturbed, min_, max_)
-
+                a.perturbed = perturbed
                 _, is_adversarial = yield from a.forward_one(perturbed)
                 if is_adversarial:
                     if decrease_if_first and i < 20:
